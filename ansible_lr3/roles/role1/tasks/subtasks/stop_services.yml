@@ -1,0 +1,5 @@
+---
+- name: Остановить микросервисы через docker-compose
+  ansible.builtin.command: "docker compose -f {{ app_dir }}/DevOps/{{ compose_file }} down"
+  args:
+    chdir: "{{ app_dir }}/DevOps"

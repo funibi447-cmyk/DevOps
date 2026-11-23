@@ -1,0 +1,16 @@
+---
+- name: Установка Docker
+  ansible.builtin.include_tasks: subtasks/install_docker.yml
+  tags: install_docker
+
+- name: Клонирование репозиториев
+  ansible.builtin.include_tasks: subtasks/clone_repos.yml
+  tags: clone_repos
+
+- name: Запуск микросервисов
+  ansible.builtin.include_tasks: subtasks/start_services.yml
+  tags: start_services
+
+- name: Остановка микросервисов
+  ansible.builtin.include_tasks: subtasks/stop_services.yml
+  tags: stop_services

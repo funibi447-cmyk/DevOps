@@ -1,0 +1,29 @@
+---
+- name: Создать директорию для приложения
+  ansible.builtin.file:
+    path: "{{ app_dir }}"
+    state: directory
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: '0755'
+
+- name: Клонировать репозиторий DevOps
+  ansible.builtin.git:
+    repo: "{{ devops_repo }}"
+    dest: "{{ app_dir }}/DevOps"
+    version: main
+    force: yes
+
+- name: Клонировать репозиторий frontend
+  ansible.builtin.git:
+    repo: "{{ frontend_repo }}"
+    dest: "{{ app_dir }}/frontend_devops"
+    version: main
+    force: yes
+
+- name: Клонировать репозиторий backend
+  ansible.builtin.git:
+    repo: "{{ backend_repo }}"
+    dest: "{{ app_dir }}/backend_devops"
+    version: main
+    force: yes
