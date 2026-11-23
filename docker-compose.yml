@@ -1,0 +1,33 @@
+version: '3.8'
+services:
+  backend:
+    build:
+      context: ./backend_devops
+      dockerfile: Dockerfile
+    image: devops-backend:2.0
+    container_name: backend_app
+    restart: always
+    volumes:
+      - backend_data:/app
+    networks:
+      - app_network
+
+  frontend:
+    build:
+      context: ./frontend_devops
+      dockerfile: Dockerfile
+    image: devops-frontend:2.0
+    container_name: frontend_app
+    restart: always
+    ports:
+      - "8080:80"
+    networks:
+      - app_network
+    depends_on:
+      - backend
+
+volumes:
+  backend_data:
+
+networks:
+  app_network:
