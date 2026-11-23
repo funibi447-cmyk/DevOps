@@ -1,0 +1,6 @@
+ansible_user: Funibi
+frontend_repo: "https://github.com/funibi447-cmyk/frontend_devops.git"
+backend_repo: "https://github.com/funibi447-cmyk/backend_devops.git"
+devops_repo: "https://github.com/funibi447-cmyk/DevOps.git"
+app_dir: /home/{{ ansible_user }}/ansible_app
+compose_file: docker-compose.yml

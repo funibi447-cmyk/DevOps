@@ -1,0 +1,6 @@
+---
+- name: Главный плейбук для развёртывания приложения
+  hosts: local
+  become: yes
+  roles:
+    - role1
