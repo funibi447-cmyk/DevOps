@@ -2,7 +2,7 @@ version: '3.8'
 services:
   backend:
     build:
-      context: ./backend_devops
+      context: ../backend_devops  # <--- Обратите внимание на ../
       dockerfile: Dockerfile
     image: devops-backend:2.0
     container_name: backend_app
@@ -14,7 +14,7 @@ services:
 
   frontend:
     build:
-      context: ./frontend_devops
+      context: ../frontend_devops # <--- Обратите внимание на ../
       dockerfile: Dockerfile
     image: devops-frontend:2.0
     container_name: frontend_app
